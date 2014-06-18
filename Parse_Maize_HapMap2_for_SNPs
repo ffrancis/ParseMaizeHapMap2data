@@ -1,4 +1,4 @@
-#Parse_Maize_B73_HapMap2_for_SNPs(WithinTheSpecifiedCoordinatesInStartStopindex1.txt)inIUPAC_format_K(G_T)_M(A_C)_R(A_G)_S(C_G)_W(A_T)_Y(C_T)
+#Parse_Maize_HapMap2_for_SNPs(WithinTheSpecifiedCoordinatesInStartStopindex1.txt)inIUPAC_format_K(G_T)_M(A_C)_R(A_G)_S(C_G)_W(A_T)_Y(C_T)
 #FelixFrancis_UniversityOfDelaware_felixfrancier@gmail.com
 #filename = "test_first1000lines.txt"
 

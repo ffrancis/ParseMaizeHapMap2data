@@ -1,0 +1,82 @@
+#Parse_Maize_B73_HapMap2_for_SNPs(WithinTheSpecifiedCoordinatesInStartStopindex1.txt)inIUPAC_format_K(G_T)_M(A_C)_R(A_G)_S(C_G)_W(A_T)_Y(C_T)
+#FelixFrancis_UniversityOfDelaware_felixfrancier@gmail.com
+#filename = "test_first1000lines.txt"
+
+
+f0= open("StartStopindex1.txt", "r")
+lines = f0.readlines()
+for line in lines:
+                cols=line.split('#')
+                if cols[0]=="1":
+                    y=cols[1] [:-1]
+                    print "Start="+y
+                elif cols[0] [-6:] == "fasta\n":
+                    x=cols[0] [3:-7] 
+                    print "chr"+x
+                elif cols[0] [-6:] != "fasta\n":
+                    z=cols[0]
+                    print "Stop="+z
+                    
+                    
+filename = "maizeHapMapV2_B73RefGenV2_201203028_chr"+ x + ".hmp.txt"
+
+f2= open("HapMap2_SNPs_K-G_T_.txt", "w")                     
+f3= open("HapMap2_SNPs_M-A_C_.txt", "w")  
+f4= open("HapMap2_SNPs_R-A_G_.txt", "w")                                
+f5= open("HapMap2_SNPs_S-C_G_.txt", "w")
+f6= open("HapMap2_SNPs_W-A_T_.txt", "w")  
+f7= open("HapMap2_SNPs_Y-C_T_.txt", "w")  
+
+#HapMap2_SNPs_K-G_T#######################################
+
+with open (filename, "r") as f1:
+	lines = f1.readlines()	
+	for line in lines:
+                cols=line.split('\t')
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="G/T" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="T/G" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                             
+                                #print (str(int(cols[3]))) +"#"+(str(int(cols[3])))
+                                f2.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+            
+
+#HapMap2_SNPs_M-A_C_#######################################
+                
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="A/C" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="C/A" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                                
+                                #print (str(int(cols[3]))) +"#"+(str(int(cols[3])))
+                                f3.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+#HapMap2_SNPs_R-A_G_#######################################
+                
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="A/G" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="G/A" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                               
+                                #print (str(int(cols[3]))) +"#"+(str(int(cols[3])))
+                                f4.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+
+#HapMap2_SNPs_S-C_G_#######################################
+                
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="C/G" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="G/C" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                                
+                                #print (str(int(cols[3])-(int(y)-1))) +"#"+(str(int(cols[3])-(int(y)-1)))
+                                f5.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+
+#HapMap2_SNPs_W-A_T_#######################################
+                
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="A/T" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="T/A" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                                
+                                #print (str(int(cols[3])-(int(y)-1))) +"#"+(str(int(cols[3])-(int(y)-1)))
+                                f6.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+#
+#HapMap2_SNPs_Y-C_T_#######################################
+                
+                if (cols[0][0:3]=="PZE" and cols [1] [0:3] =="C/T" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)) or (cols[0][0:3]=="PZE" and cols [1] [0:3] =="T/C" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z)):
+                                                               
+                                #print (str(int(cols[3])-(int(y)-1))) +"#"+(str(int(cols[3])-(int(y)-1)))
+                                f7.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
+
+f1.close()
+f2.close()
+f3.close()
+f4.close()
+f5.close()
+f6.close()
+f7.close()

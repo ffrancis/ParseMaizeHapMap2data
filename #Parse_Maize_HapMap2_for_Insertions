@@ -24,7 +24,7 @@ with open (filename, "r") as f1:
 	lines = f1.readlines()	
 	for line in lines:
                 cols=line.split('\t')
-                if cols[0][0:3]=="PZE" and cols [1] [0:1] =="+" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z):
+                if cols[0][0:3]=="PZE" and cols [1] [2:3] =="+" and cols[2] == x and int(cols[3]) >= int(y) and int(cols[3]) <= int(z):
                                                                 
                                 #print (str(int(cols[3])-(int(y)-1))) +"#"+(str(int(cols[3])-(int(y)-1)))
                                 f2.write ((str(int(cols[3]))) +"#"+(str(int(cols[3])))+"\n")
